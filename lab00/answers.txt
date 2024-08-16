@@ -1,4 +1,4 @@
-1.
-2.
-3.
-4.
+1. find /path/to/search/ -type f -exec grep "keyword" {} +
+2. ps aux
+3. kill -9 PID
+4. diff file1 file2
