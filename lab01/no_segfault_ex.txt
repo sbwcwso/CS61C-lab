@@ -1,0 +1,36 @@
+1. Why didn’t the no_segfault_ex program segfault?
+
+The program did not segfault because it does not access any invalid memory locations. Here's why:
+
+Array Bounds and Access: The array a is defined with 5 elements. In the for loop, the program accesses a[j] for j ranging from 0 to sizeof(a) - 1. While sizeof(a) is 20 (bytes), the for loop runs 20 iterations because sizeof(a) returns the size of the array in bytes, not the number of elements.
+
+Out-of-Bounds Access: Although sizeof(a) is 20 bytes, the program accesses the array elements as if each element is 1 byte (which is not correct). However, since the array a is of int type (typically 4 bytes per element on most platforms), accessing a[j] beyond the 5th element does not immediately cause a segfault. This is because it accesses memory locations that are still valid but outside the bounds of the array.
+
+---
+
+2. Why does the no_segfault_ex produce inconsistent outputs?
+
+The program produces inconsistent outputs because it accesses out-of-bounds memory locations due to the incorrect use of sizeof.
+
+Undefined Behavior: Accessing memory beyond the bounds of the array leads to undefined behavior. The values read from these out-of-bounds memory locations can vary between runs and platforms, resulting in inconsistent outputs.
+
+---
+
+3. Why is sizeof incorrect? How could you still use sizeof but make the code correct?
+
+Correct Usage of sizeof: To correctly use sizeof for iterating through the array elements, you need to calculate the number of elements in the array:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[5] = {1, 2, 3, 4, 5};
+    unsigned total = 0;
+    int num_elements = sizeof(a) / sizeof(a[0]);
+    for (int j = 0; j < num_elements; j++) {
+        total += a[j];
+    }
+    printf("sum of array is %u\n", total);
+    return 0;
+}
+```

@@ -10,4 +10,4 @@ int main(int argc, char *argv[]) {
     printf("Hey, %sI just really wanted to say hello to you.\nI hope you have a wonderful day.", a_word);
 
     return 0;
-}
+u
