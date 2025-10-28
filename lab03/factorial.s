@@ -21,4 +21,12 @@ main:
     ecall # Exit
 
 factorial:
-    # YOUR CODE HERE
+    mv  t1, a0 # t1 = a0
+    addi t2, x0, 2 
+loop:
+    blt t1, t2, exit # if t1 < t2 then exit
+    addi t1, t1, -1 # t1 = t1 + -1
+    mul a0, a0, t1  # a0 = a0 * t1
+    j loop  # jump to loop
+exit:
+    jr ra   # jump to ra

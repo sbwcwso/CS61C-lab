@@ -1,5 +1,6 @@
 #include <stdio.h>
-int main() {
+int main()
+{
     int a[5] = {1, 2, 3, 4, 5};
     unsigned total = 0;
     for (int j = 0; j < sizeof(a); j++) {

@@ -7,8 +7,30 @@ Part 1
     blocksize = 20, n = 5000: 
     blocksize = 20, n = 10000: 
 
+    ./transpose 1000 20
+    Testing naive transpose: 0.493 milliseconds
+    Testing transpose with blocking: 0.647 milliseconds
+
+    ./transpose 2000 20
+    Testing naive transpose: 2.019 milliseconds
+    Testing transpose with blocking: 2.508 milliseconds
+
+    ./transpose 5000 20
+    Testing naive transpose: 14.875 milliseconds
+    Testing transpose with blocking: 20.119 milliseconds
+
+    ./transpose 10000 20
+    Testing naive transpose: 86.958 milliseconds
+    Testing transpose with blocking: 69.774 milliseconds
+
+
     Checkoff Question 1:
+
+    When the matrix size >= 10000
+
     Checkoff Question 2:
+
+    When the matrix size is too small, the cache can hold the whole matrix size, all the cache miss are compulsory miss. In this situation, the blocked version spend more time on block, so the blocked version isn’t faster than the naive version until the matrix size is sufficiently big.
 
 Part 2
     blocksize = 50, n = 10000:
@@ -17,4 +39,27 @@ Part 2
     blocksize = 1000, n = 10000:
     blocksize = 5000, n = 10000:
 
+    ./transpose 10000 50
+    Testing naive transpose: 71.574 milliseconds
+    Testing transpose with blocking: 48.549 milliseconds
+
+    ./transpose 10000 100
+    Testing naive transpose: 67.47 milliseconds
+    Testing transpose with blocking: 41.169 milliseconds
+
+    ./transpose 10000 500
+    Testing naive transpose: 66.787 milliseconds
+    Testing transpose with blocking: 42.676 milliseconds
+
+    ./transpose 10000 1000
+    Testing naive transpose: 67.633 milliseconds
+    Testing transpose with blocking: 57.484 milliseconds
+
+    ./transpose 10000 5000
+    Testing naive transpose: 64.573 milliseconds
+    Testing transpose with blocking: 64.217 milliseconds
+
     Checkoff Question 3:
+
+    As blocksize increases, performance first improves and then deteriorates, forming an inverted U-shape curve. Initially, larger blocks improve data locality by allowing more work to be done on data while it resides in the fast L1/L2 cache, which efficiently amortizes the fixed overhead of the blocking logic itself. However, once the blocksize grows too large, the working set no longer fits in the cache, leading to capacity misses and cache thrashing. This cache penalty quickly overwhelms the benefits of locality, causing performance to drop. This demonstrates that while caches universally benefit from localized access patterns, there is an optimal blocksize that balances the overhead of blocking against the finite capacity of the cache hierarchy.
+

@@ -1,19 +1,19 @@
 Exercise 1:
-    1.
-    2.
-    3.
+    1. 8
+    2. 2, 8, 0, 8
+    3. no, no
 
 Exercise 2:
-    1.
+    1. 20, 40, 60, 80, a0, c0, e0, 00, 20, 40
 
 Exercise 3:
-    1.
+    1. Physical Memroy Size
 
 --- lines below are ignored by the AG ---
 
 Exercise 1 Checkoff Questions:
-    1.
-    2.
+    1. Fist, TLB Misses, find page table entry in the page table. There is no page table entry at first access, so page fault, will read from disk into main memory and generate a page table
+    2. There are only four pages in the physical memory, so 2 bits for PPN. There are eight entries in the page talbe, so 3 bits for VPN.
 
 Exercise 4 Checkoff Question:
-    1.
+    1. As the TLB is flushed on every context switch between the four processes in this simulator, the TLB miss rate is significantly higher.

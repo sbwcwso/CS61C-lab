@@ -1,6 +1,10 @@
 #include "server_utils.h"
 #include <unistd.h>
 
+int server_fd;
+int server_port;
+char *server_files_directory;
+
 char *header_tag_left = "<center><h1>";
 char *header_tag_right = "</h1><hr></center>";
 char *content_type = "Content-Type";
@@ -193,7 +197,6 @@ void dispatch(int client_socket_number) {
    void (*request_handler)(int, struct http_request*) = &handle_files_request;
 
    request_handler(client_socket_number, request);
-   close(client_socket_number);
 
    sleep(5);      // Pretending we are doing some heavy computation...
 }
@@ -252,25 +255,34 @@ void serve_forever(int *socket_number) {
       pid_t parent_pid = getpid();
 #ifdef PROC
       // PART 2 TASK: Implement forking
-      /* YOUR CODE HERE */
+      pid_t child_id = fork();
+      if (child_id < 0) {
+         perror("Fork failed");
+         exit(1);
+      }
 
-      if (/* YOUR CODE HERE */) {
-         // This line kills the child process if parent dies
-         int r = prctl(PR_SET_PDEATHSIG, SIGTERM);
+      if (child_id == 0) {
+        // This line kills the child process if parent dies
+        int r = prctl(PR_SET_PDEATHSIG, SIGTERM);
 
-         /* YOUR CODE HERE */
+        /* YOUR CODE HERE */
          
-         // These lines exit the current process with code 1 
-         // 1) when there was an error in prctl, 2) when the parent has been killed
-         if (r == -1 || getppid() != parent_pid) {
+        // These lines exit the current process with code 1 
+        // 1) when there was an error in prctl, 2) when the parent has been killed
+        if (r == -1 || getppid() != parent_pid) {
             perror(0);
             exit(1);
-         }
-
-         /* YOUR CODE HERE */
+        }
+        dispatch(client_socket_number);
+        close(client_socket_number);
+        exit(0);
+      } else {
+        // Parent process
+        close(client_socket_number); // Close the client socket in the parent
       }
 #else
-      dispatch(client_socket_number);
+    dispatch(client_socket_number);
+    close(client_socket_number);
 #endif
    }
 }

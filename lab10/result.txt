@@ -1,0 +1,48 @@
+Optimized adjacent: 1 thread(s) took 0.223908 seconds
+Optimized adjacent: 2 thread(s) took 0.403000 seconds
+Optimized adjacent: 3 thread(s) took 0.363950 seconds
+Optimized adjacent: 4 thread(s) took 0.349482 seconds
+Optimized adjacent: 5 thread(s) took 0.413448 seconds
+Optimized adjacent: 6 thread(s) took 0.449742 seconds
+Optimized adjacent: 7 thread(s) took 0.665369 seconds
+Optimized adjacent: 8 thread(s) took 0.798875 seconds
+Optimized adjacent: 9 thread(s) took 0.479967 seconds
+Optimized adjacent: 10 thread(s) took 0.386365 seconds
+Optimized adjacent: 11 thread(s) took 0.303963 seconds
+Optimized adjacent: 12 thread(s) took 0.341648 seconds
+Optimized adjacent: 13 thread(s) took 0.286418 seconds
+Optimized adjacent: 14 thread(s) took 0.315030 seconds
+Optimized adjacent: 15 thread(s) took 0.274664 seconds
+Optimized adjacent: 16 thread(s) took 0.299914 seconds
+Optimized chunks: 1 thread(s) took 0.216444 seconds
+Optimized chunks: 2 thread(s) took 0.124675 seconds
+Optimized chunks: 3 thread(s) took 0.115081 seconds
+Optimized chunks: 4 thread(s) took 0.114442 seconds
+Optimized chunks: 5 thread(s) took 0.114523 seconds
+Optimized chunks: 6 thread(s) took 0.115587 seconds
+Optimized chunks: 7 thread(s) took 0.116198 seconds
+Optimized chunks: 8 thread(s) took 0.126072 seconds
+Optimized chunks: 9 thread(s) took 0.117986 seconds
+Optimized chunks: 10 thread(s) took 0.116689 seconds
+Optimized chunks: 11 thread(s) took 0.118634 seconds
+Optimized chunks: 12 thread(s) took 0.120087 seconds
+Optimized chunks: 13 thread(s) took 0.138838 seconds
+Optimized chunks: 14 thread(s) took 0.120165 seconds
+Optimized chunks: 15 thread(s) took 0.118712 seconds
+Optimized chunks: 16 thread(s) took 0.116949 seconds
+Naive: 1 thread(s) took 0.225631 seconds
+Naive: 2 thread(s) took 0.379224 seconds
+Naive: 3 thread(s) took 0.527514 seconds
+Naive: 4 thread(s) took 0.548560 seconds
+Naive: 5 thread(s) took 0.586437 seconds
+Naive: 6 thread(s) took 0.571614 seconds
+Naive: 7 thread(s) took 0.636799 seconds
+Naive: 8 thread(s) took 0.555336 seconds
+Naive: 9 thread(s) took 0.480324 seconds
+Naive: 10 thread(s) took 0.551213 seconds
+Naive: 11 thread(s) took 0.520596 seconds
+Naive: 12 thread(s) took 0.552620 seconds
+Naive: 13 thread(s) took 0.510418 seconds
+Naive: 14 thread(s) took 0.541399 seconds
+Naive: 15 thread(s) took 0.524925 seconds
+Naive: 16 thread(s) took 0.512858 seconds

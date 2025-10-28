@@ -1,8 +1,21 @@
-1.
-2.
+1. kji, jki
+2. kij, ikj
 
 --- lines below are ignored by the AG ---
 
 Checkoff Question 1:
+
+  In kji and jki, the inner loop moves through A with stride 1, moves through B with stride 0,
+  moves through C with stride 1, so they have the best spatial locality.
+
 Checkoff Question 2:
+
+  In kij and ikj, the inner loop moves through A with stride 0, moves through B with stride n,
+  moves through C with stride n, so they have the worst spatial locality.
+
 Checkoff Question 3:
+
+  The way we stride through matrices in the innermost loop directly affects performance because it
+  determines how we exploit spatial and temporal locality. Iterating over contiguous memory
+  locations (stride = 1) keeps cache lines hot and leads to higher hit rates, while large strides
+  cause frequent cache misses and poorer performance.
